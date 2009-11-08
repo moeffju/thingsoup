@@ -4,37 +4,8 @@
 <div class="column-two-thirds">
 
 <ul><li class="thing"><img src="/images/thing.jpg"/> <%=@thing['_id']%></li></ul>
-<table class="thing">
-<%
-  @thing.each do |k,v|
-    if k[0,1]!="_" then
+<%=
+  walk_values(@thing)
 %>
-  <tr>
-    <td class="key"><%=k%></td>
-    <td class="value">
-    	<%
-    		if !v.is_a?(String) && v.respond_to?("each") && v.length>1 then
-    	%>
-    		<ol>
-    	<%
-    			v.each do |sub_k,sub_v|
-    				%><li><%=sub_k%>: <%=sub_v%></li><%
-    			end
-    	%>
-    		</ol>
-    	<%
-    		else
-    	%>
-    		<%=v%>
-    	<%
-    		end
-    	%>
-    </td>
-  </tr>
-<%
-    end 
-  end
-%>
-</table>
 
 </div>
