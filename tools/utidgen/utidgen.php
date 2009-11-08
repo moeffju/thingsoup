@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * UTIDgen
+ *
+ * Generates Universal Thing IDs.
+ */
+
 class UTID
 {
   private $uuid = array();
