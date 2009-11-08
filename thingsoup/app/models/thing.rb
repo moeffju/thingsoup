@@ -1,10 +1,20 @@
 
-class Thing 
+class Thing
 
-  def self.list
+  attr_accessor :db
+
+  def _connect
     @db = CouchRest.database!("http://thingsoup.com:5984/thingsoup")
+  end
 
-    @db.documents
+  def list
+    _connect
+    @db.view("by_displayname/by_displayname")
+  end
+  
+  def get(utid)
+    _connect
+    @db.get(utid)
   end
 
 end

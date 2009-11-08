@@ -1,7 +1,36 @@
-<hr>
-<pre>
-<%=
-	@things.to_yaml
-%>
-</pre>
-<hr>
+
+<div class="column-two-thirds">
+
+	<ul>
+		<li class="thing">
+			<img src="/images/thing.jpg"/><a href="#">anonymous</a>
+		</li>
+	</ul>
+	
+	<div class="taglist"><%= render :partial => "tag", :locals => {:tag=>"ich"} %></div>
+	
+	<div class="auth">
+		<p>
+			<img src="/images/auth-oauth.jpg"/>
+		</p>
+		<p>
+			<img src="/images/auth-twitter.jpg"/>
+		</p>
+	</div>
+</div>
+
+<div class="column-third">
+	<%= render :partial => "search_label", :locals => {:caption=>"neue dinge"} %>
+	<ul>
+	<%
+		@things['rows'].each do |thing|
+	%>
+			<li class="thing">
+				<img src="/images/thing.jpg"/>
+				<a href="/things/show/<%= thing['id'] %>"><%= thing['key'] %></a>
+			</li>
+	<%
+		end
+	%>
+	</ul>
+</div>

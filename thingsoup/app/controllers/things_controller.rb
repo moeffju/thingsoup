@@ -1,10 +1,11 @@
 class ThingsController < ApplicationController
-  def index
-    
-    @things = Thing.list
+  layout 'standard'
 
-    respond_to do |format|
-      format.html
-    end
+  def index
+    @things = Thing.new.list
+  end
+  
+  def show
+    @thing = Thing.new.get(params[:id])
   end
 end
