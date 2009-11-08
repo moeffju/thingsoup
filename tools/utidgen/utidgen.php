@@ -39,7 +39,7 @@ class UTID
   public function get_hex()
   {
     $uuid_hex = '';
-    for ( $i = 0; $i < sizeof($this->uuid)-1; $i++ ) {
+    for ( $i = 0; $i < sizeof($this->uuid); $i++ ) {
       if ( $i > 0 && $i % ($this->bits / 32) == 0 ) $uuid_hex .= '-';
       $uuid_hex.= sprintf( '%02x' , $this->uuid[$i] );
     }
