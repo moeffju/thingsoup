@@ -4,7 +4,7 @@ class Thing
   attr_accessor :db
 
   def _connect
-    @db = CouchRest.database!("http://thingsoup.com:5984/thingsoup")
+    @db = CouchRest.database!("http://localhost:5984/thingsoup")
   end
 
   def list
