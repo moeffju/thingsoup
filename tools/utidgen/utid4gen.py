@@ -30,7 +30,7 @@ def main():
         return False;
 
     for i in range(count):
-        print uuid.uuid4().hex
+        print uuid.uuid4().hex + uuid.uuid4().hex
 
 if len(argv) > 2:
     print """Syntax:
