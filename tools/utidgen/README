@@ -1,6 +1,0 @@
-Syntax:
-
-  php utidgen.php [number-of-utids]
-
-Generate [number-of-utids] UTIDs, default 1.
-
