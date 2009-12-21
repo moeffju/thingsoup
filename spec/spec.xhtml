@@ -134,6 +134,21 @@ body {
 
    <h3 id="requirements_section">Requirements</h3>
 
+    <h4>Associating physical objects with datasets</h4>
+
+     <p>
+      It is recommended that objects be associated with their respective datasets through use of their <abbr>UUID</abbr>. Implementors should not use other means of identification, to prevent difficulties resulting from differing proprietary means of identification. If they chose to do so regardless, the <abbr>UUID</abbr> must also be available in a machine-readable way.
+     </p>
+     <p>
+      Making the <abbr>UUID</abbr> available can be accomplished in a matter of ways, a non-exhaustive list of which is noted here:
+     </p>
+
+     <ul>
+      <li>Writing / printing the UUID of an object on the object itself. It is recommended to use an <abbr title="Optical Character Recognition">OCR</abbr>-safe font for this.</li>
+      <li><abbr title="two-dimensional">2D</abbr>-Barcodes, such as QR-Code or Data Matrix / Semacode [ISO/IEC 16002]</li>
+      <li>Using radio tags, e.g. <abbr>RFID</abbr>.</li>
+     </ul>
+
   <h2 class="no-num" id="acknowledgments">Acknowledgments</h2>
 
   <ul>
