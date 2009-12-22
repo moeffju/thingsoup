@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -12,10 +13,13 @@
    height="400"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
+   inkscape:version="0.47pre4 r22446"
    version="1.0"
    sodipodi:docname="sidebar.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/erlehmann/src/thingsoup/spec/images/sidebar.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4">
     <inkscape:perspective
@@ -42,7 +46,12 @@
      inkscape:snap-bbox="true"
      objecttolerance="10000"
      gridtolerance="10000"
-     guidetolerance="10000">
+     guidetolerance="10000"
+     inkscape:window-width="1280"
+     inkscape:window-height="690"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
        id="grid2383"
@@ -60,6 +69,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -76,7 +86,7 @@
        y="0" />
     <text
        xml:space="preserve"
-       style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:200%;writing-mode:lr-tb;text-anchor:end;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold"
+       style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:200%;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold"
        x="-31.679688"
        y="16.15625"
        id="text3157"
@@ -86,6 +96,6 @@
          id="tspan3159"
          x="-31.679688"
          y="16.15625"
-         style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;-inkscape-font-specification:Droid Sans Bold">Thingsoup First Draft</tspan></text>
+         style="font-size:16px;font-style:normal;font-weight:bold;text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;-inkscape-font-specification:Droid Sans Bold">Thingsoup Brainstorming</tspan></text>
   </g>
 </svg>
