@@ -1,0 +1,30 @@
+body {
+  background-color: #888;
+  margin: 25px;
+}
+
+div.content {
+  margin: 0;
+  margin-bottom: 10px;
+  background-color: #d3e0ea;
+  border: 5px solid #333;
+  padding: 5px 25px 25px 25px;
+}
+
+h1.main {
+  width: 100%;
+}
+
+p.footer{
+  width: 100%;
+  padding-top: 8px;
+  border-top: 1px solid #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
