@@ -8,7 +8,7 @@
 		<div class="thing-edit">
 		
 			<div class="wide">
-				<h2>${c.thing.title}</h2>
+				<h2>${c.thing.dc_title}</h2>
 			</div>
 			
 			<div class="wide">
