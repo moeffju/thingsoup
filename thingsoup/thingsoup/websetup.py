@@ -18,7 +18,7 @@ def setup_app(command, conf, vars):
     log.info("Successfully set up.")
 
     log.info("Adding example thing …")
-    thing = model.Thing(title="box of spaxen (12 pieces)", description="HERE BRE DRAGONS")
+    thing = model.Thing(title="box of spaxen (12 pieces)", description="Developed in close cooperation with SPAX®, a world leader in fasteners, the SPAX® 4x40 screw. It is adapted to the most stringent requirements in terms of wood assembly.")
     meta.Session.add(thing)
     meta.Session.commit()
     log.info("Successfully added example thing.")
