@@ -37,8 +37,8 @@ def init_model(engine):
 #    pass
 
 things_table = sa.Table('things', meta.metadata,
-                sa.Column('dc_identifier', sa.types.String(45), primary_key=True),
-                # uuid.uuid4().urn.__len__() is always 45
+                sa.Column('uuid', sa.types.String(36), primary_key=True),
+                # str(uuid.uuid4()).__len__() is always 36
                 sa.Column('dc_title', sa.types.Unicode(255), default=''),
                 sa.Column('dc_description', sa.types.Unicode(), default=''),
                 sa.Column('dc_type', sa.types.String())
@@ -48,13 +48,13 @@ things_table = sa.Table('things', meta.metadata,
 class Thing(object):
 
     def __init__(self, title, description='', type='PhysicalObject'):
-        self.dc_identifier = uuid4().urn
+        self.uuid = str(uuid4())
         self.dc_title = title
         self.dc_description = content
         self.dc_type = type
 
     def __unicode__(self):
-        return self.title, self.type
+        return self.uuid, self.dc_title, self.dc_type, self.dc_description
 
     __str__ = __unicode__
 
