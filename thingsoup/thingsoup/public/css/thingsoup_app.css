@@ -1,0 +1,205 @@
+
+/* ------------------------------- type */
+
+body {
+
+	min-width: 750px;
+
+	padding: 32px;
+
+	line-height: 18px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	
+	background-color: white;
+}
+
+h1 {
+	float: left;
+	clear: both;
+	
+	display: block;
+	
+	border-top: 1px solid black;
+	width: 100%;
+	
+	padding-top: 2px;
+	
+	font-size: 14px;
+	font-weight: bold;
+	
+}
+
+h2 {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+p {
+	margin-top: 5px;
+	font-size: 12px;
+}
+
+a {
+	font-weight: bold;
+}
+
+/* ------------------------------- columns */
+
+.column-left, .column-right {
+	float: left;
+	width: 50%;
+	padding: 0px;
+	margin: 0px;
+}
+
+.column-left {
+	clear: left;
+}
+
+.column-right {
+	text-align: right;
+}
+
+.wide {
+	float: left;
+	clear: both;
+}
+
+/* ------------------------------- header */
+
+.header {	
+	line-height: 34px;
+	
+	float: left;
+	clear: both;
+	
+	width: 100%;
+}
+
+.header .logo {
+	background-image: url("../img/thingsoup-logo-small.png");
+	
+	width: 118px;
+	height: 34px;
+	
+	float: left;
+	
+	margin-right: 32px;
+}
+
+/* ------------------------------- thing:show / thing:new / thing:edit */
+
+.thing-main {
+	float: left;
+	clear: both;
+	
+	margin-left: 93px;
+	margin-top: 30px;
+}
+
+.thing-main h2 {
+	margin-top: 0px;
+}
+
+.thing-icon {
+	background-image: url("../img/box-big.png");
+	
+	width: 44px;
+	height: 46px;
+	
+	float: left;
+}
+
+.thing-edit {
+	float: left;
+	
+	padding-top: 5px;
+	padding-left: 13px;
+	padding-bottom: 100px;
+	
+	width: 600px;
+	
+}
+
+.thing-edit p.key {
+	font-weight: bold;
+	margin: 0px;
+}
+
+.thing-edit p.value {
+	margin: 0px;
+}
+
+.thing-edit label {
+	float: left;
+	clear: both;
+}
+
+.thing-edit input, .thing-edit textarea, .thing-edit select {
+	float: left;
+	width: 100%;
+}
+
+.thing-edit textarea {
+	height: 100px;
+}
+
+.thing-edit .wide {
+	width: 100%;
+}
+
+.thing-edit .column-left, .thing-edit .column-right, .thing-edit .wide {
+	margin-top: 8px;
+}
+
+.thing-edit .column-left {
+	width: 150px;
+}
+
+.thing-edit .column-right {
+	text-align: left;
+	width: 385px;
+	margin-left: 15px;
+}
+
+.thing-edit .new-section {
+	margin-top: 30px !important;
+}
+
+
+/* ------------------------------- thing:list */
+
+.list-of-things {
+	float: left;
+	clear: both;
+	
+	margin-top: 15px;
+}
+
+.list-of-things .thing {
+	float: left;
+	clear: both;
+	
+	margin-top: 15px;
+	margin-left: 93px;
+}
+
+.list-of-things .thing-preview {
+	float: left;
+	max-width: 500px;
+	
+	margin-left: 15px;
+}
+
+.thing-preview h2 {
+	float: left;
+	clear: both;
+}
+
+.thing-preview p {
+	float: left;
+	clear: both;
+	
+	margin-top: 0px !important;
+}
