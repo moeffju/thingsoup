@@ -34,7 +34,7 @@ class ThingsController(BaseController):
 
         thing = self.thing_q.filter_by(uuid=uuid).first()
         if thing:
-            c.content = thing
+            c.thing = thing
             return render('/things/show.mako')
         else:
             abort(404)
