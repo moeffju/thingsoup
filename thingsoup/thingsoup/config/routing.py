@@ -20,14 +20,14 @@ def make_map():
 
     # CUSTOM ROUTES HERE
 
-    map.connect('/{controller}/{action}')
-    map.connect('/{controller}/{action}/{id}')
-
     map.connect('home', '/', controller='things', action='show', title='front page')
+
+    #map.connect('/{controller}/{action}')
+    #map.connect('/{controller}/{action}/{id}')
 
     map.connect('things', '/things', controller='things', action='index')
     map.connect('form_new_thing', '/things/new', controller='things', action='new')
     map.connect('create_thing', '/things/create', controller='things', action='create')
-    map.connect('show_thing', '/things/show/{dc_identifier}', controller='things', action='show')
+    map.connect('show_thing', '/things/show/{uuid}', controller='things', action='show')
 
     return map
