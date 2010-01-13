@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Thingsoup</title>
-    ${h.stylesheet_link('/quick.css')}
-  </head>
+	<head>
+		<title>thingsoup</title>
+		${h.stylesheet_link('/quick.css')}
+		${h.stylesheet_link('/css/thingsoup_app.css')}
+	<script src="js/jquery-1.3.2.min.js"></script>
+	<script src="js/thing_focus.js"></script>
+	</head>
 
-  <body>
-    <div class="content">
-      <h1 class="main">${self.header()}</h1>
-      ${next.body()}\
-      <p class="footer">
-        Return to the ${h.link_to('front page', url('FrontPage'))}
-      </p>
-    </div>
-  </body>
+	<body>
+		<div class="header">
+			<div class="column-left">
+				<a href="/"><div class="logo"></div></a>
+			</div>
+			
+			<div class="column-right">
+				<a href="/users/login">login</a> |
+				<a href="/things/new">new thing</a>
+			</div>
+		</div>
+	
+		<h1>${self.header()}</h1>
+	
+		${next.body()}\
+	</body>
 </html>
