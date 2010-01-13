@@ -50,11 +50,11 @@ class Thing(object):
     def __init__(self, title, description='', type='PhysicalObject'):
         self.uuid = str(uuid4())
         self.dc_title = title
-        self.dc_description = content
+        self.dc_description = description
         self.dc_type = type
 
     def __unicode__(self):
-        return self.uuid, self.dc_title, self.dc_type, self.dc_description
+        return self.uuid + self.dc_title + self.dc_type + self.dc_description
 
     __str__ = __unicode__
 
