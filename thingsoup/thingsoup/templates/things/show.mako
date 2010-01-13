@@ -1,5 +1,5 @@
-<%inherit file="/base.mako"/>\
+<%inherit file="/main.mako"/>\
 
 <%def name="header()">${c.title}</%def>
 
-${h.literal(c.content)}
+${c.content}
