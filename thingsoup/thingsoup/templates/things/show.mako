@@ -1,10 +1,17 @@
 <%inherit file="/main.mako"/>\
 
-<%def name="header()">a thing (urn:uuid:${c.thing.uuid})</%def>
+<%def name="header()">a thing (${c.thing.urn()})</%def>
 
     <div class="thing-main">
     
-        <div class="thing-icon"></div>
+        <div class="thing-icon"/></div>
+
+        <a href="${c.thing.qrcode(size=256)}"
+            <img
+                src="${c.thing.qrcode(size=128)}"
+                alt="QRcode for ${c.thing.uuid}"/>
+        </a>
+
         <div class="thing-edit">
         
             <div class="wide">

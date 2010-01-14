@@ -58,4 +58,11 @@ class Thing(object):
 
     __str__ = __unicode__
 
+    def urn(self):
+        return "urn:uuid:" + self.uuid
+
+    def qrcode(self, size):
+        return "http://chart.apis.google.com/chart?cht=qr&chs=" + \
+            str(size) + "x" + str(size) + "&chl=" + self.urn() + "&chld=H|0"
+
 orm.mapper(Thing, things_table)

@@ -26,11 +26,10 @@ class ThingsController(BaseController):
 
     def new(self):
         # show new object form
-        return 'dummy: new object form'
+        return render('/things/new.mako')
 
     def show(self, uuid):
         # show an object
-        #return 'dummy: details about object'
 
         thing = self.thing_q.filter_by(uuid=uuid).first()
         if thing:
