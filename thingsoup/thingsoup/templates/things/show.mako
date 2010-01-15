@@ -6,7 +6,7 @@
     
         <div class="thing-icon"/></div>
 
-        <a href="${c.thing.qrcode(size=256)}"
+        <a href="${c.thing.qrcode(size=256)}">
             <img
                 src="${c.thing.qrcode(size=128)}"
                 alt="QRcode for ${c.thing.uuid}"/>
