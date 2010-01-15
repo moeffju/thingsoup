@@ -14,7 +14,7 @@
                 <a href="/"><div class="logo"></div></a>
                 
                 <input type="text" name="q" value=""/>
-				<input type="submit" name="submit" value="search"/>
+                <input type="submit" name="submit" value="search"/>
             </div>
             
             <div class="column-right">
