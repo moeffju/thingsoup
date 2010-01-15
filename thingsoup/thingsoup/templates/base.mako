@@ -2,27 +2,34 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>thingsoup</title>
-        <link rel="stylesheet" href='/css/thingsoup_app.css'/>
+        <title>thingsoup — ${self.header()}</title>
     </head>
 
     <body>
-        <div class="header">
-            <div class="column-left">
-                <a href="/"><div class="logo"></div></a>
-                
-                <input type="text" name="q" value=""/>
-                <input type="submit" name="submit" value="search"/>
-            </div>
-            
-            <div class="column-right">
-                <a href="/users/login">login</a> |
-                <a href="/things/new">new thing</a>
-            </div>
-        </div>
-    
+        <header>
+            <a href=""><div class="logo"/></a>
+
+            <nav>
+                <ul>
+                    <li><a href="">main</a></li>
+                    <li><a href="">index</a></li>
+                    <li><a href="">new thing</a></li>
+                </ul>
+            </nav>
+
+            <form>
+                <fieldset>
+                    <input type="text" name="q" value=""/>
+                    <input type="submit" name="submit" value="find"/>
+                </fieldset>
+            </form>
+
+        </header>
+
         <h1>${self.header()}</h1>
     
         ${next.body()}\
+
+        <footer/>
     </body>
 </html>
