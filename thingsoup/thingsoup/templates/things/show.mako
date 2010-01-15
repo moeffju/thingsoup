@@ -1,4 +1,4 @@
-<%inherit file="/main.mako"/>\
+<%inherit file="/base.mako"/>\
 
 <%def name="header()">a thing (${c.thing.urn()})</%def>
 

@@ -1,5 +1,5 @@
 
-<%inherit file="/main.mako"/>\
+<%inherit file="/base.mako"/>\
 
 <%def name="header()">your search for "motor in berlin" yielded 23 results</%def>
 
