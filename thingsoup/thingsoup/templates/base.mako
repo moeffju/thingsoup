@@ -4,8 +4,6 @@
     <head>
         <title>thingsoup</title>
         <link rel="stylesheet" href='/css/thingsoup_app.css'/>
-        <script src="js/jquery-1.3.2.min.js"></script>
-        <script src="js/thing_focus.js"></script>
     </head>
 
     <body>
