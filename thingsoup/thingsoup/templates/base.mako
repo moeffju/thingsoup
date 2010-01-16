@@ -23,12 +23,15 @@
                     <input type="submit" name="submit" value="find"/>
                 </fieldset>
             </form>
-
         </header>
 
-        <h1>${self.header()}</h1>
-    
-        ${next.body()}\
+        <div class="main">
+
+            <h1>${self.header()}</h1>
+
+            ${next.body()}\
+
+        </div>
 
         <footer/>
     </body>

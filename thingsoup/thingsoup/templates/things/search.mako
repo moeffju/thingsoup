@@ -1,4 +1,3 @@
-
 <%inherit file="/base.mako"/>\
 
 <%def name="header()">search for things</%def>
