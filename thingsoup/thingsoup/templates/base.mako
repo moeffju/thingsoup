@@ -11,16 +11,23 @@
 
             <nav>
                 <ul>
-                    <li><a href="">main</a></li>
-                    <li><a href="">index</a></li>
-                    <li><a href="">new thing</a></li>
+                    <li>
+                        <a href="">main</a>
+                    </li>
+                    <li>
+                        <a href="">index</a>
+                    </li>
+                    <li>
+                        <a href="">new thing</a>
+                    </li>
                 </ul>
             </nav>
 
             <form>
                 <fieldset>
-                    <input type="text" name="q" value=""/>
-                    <input type="submit" name="submit" value="find"/>
+                    <label for="query">Search</label>
+                    <input type="search" id="query"/>
+                    <input type="submit"/>
                 </fieldset>
             </form>
         </header>
