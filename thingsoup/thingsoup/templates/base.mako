@@ -7,18 +7,16 @@
 
     <body>
         <header>
-            <a href=""><div class="logo"/></a>
-
             <nav>
                 <ul>
                     <li>
-                        <a href="">main</a>
+                        ${h.link_to('Home', url('home'))}
                     </li>
                     <li>
-                        <a href="">index</a>
+                        ${h.link_to('Index', url('index'))}
                     </li>
                     <li>
-                        <a href="">new thing</a>
+                        ${h.link_to('New Thing', url('form_new_thing'))}
                     </li>
                 </ul>
             </nav>

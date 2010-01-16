@@ -2,7 +2,7 @@
 
 <%def name="header()">add a thing to the soup</%def>
 
-<form>
+${h.secure_form(url('save_page'))}
     <fieldset>
 
         <legend>Thing details</legend>
@@ -38,4 +38,4 @@
         <input type="submit"/>
 
     </fieldset>
-</form>
+${h.end_form()}
