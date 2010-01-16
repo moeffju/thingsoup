@@ -16,7 +16,6 @@ class ThingsController(BaseController):
 
     def index(self):
         # Return a rendered template
-        #return render('/things.mako')
         # or, return a response
         return 'Goodbye, cruel world.'
 
