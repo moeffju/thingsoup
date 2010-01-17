@@ -25,8 +25,9 @@ def make_map():
     #map.connect('/{controller}/{action}')
     #map.connect('/{controller}/{action}/{id}')
 
-    map.connect('form_new_thing', '/things/new', controller='things', action='new')
     map.connect('create_thing', '/things/create', controller='things', action='create')
+    map.connect('form_new_thing', '/things/new', controller='things', action='new')
+    map.connect('index_things', '/things/index', controller='things', action='index')
     map.connect('show_thing', '/things/show/{uuid}', controller='things', action='show')
 
     return map

@@ -17,7 +17,8 @@ class ThingsController(BaseController):
     def index(self):
         # Return a rendered template
         # or, return a response
-        return 'Goodbye, cruel world.'
+        c.things = self.thing_q.all()
+        return render('/things/index.mako')
 
     def create(self):
         # create a new object
