@@ -2,6 +2,7 @@ import logging
 
 from pylons import request, response, session, tmpl_context as c
 from pylons.controllers.util import abort, redirect_to
+from pylons.decorators.secure import authenticate_form
 
 from thingsoup.lib.base import BaseController, render
 from thingsoup.model import Thing
@@ -20,9 +21,19 @@ class ThingsController(BaseController):
         c.things = self.thing_q.all()
         return render('/things/index.mako')
 
+    @authenticate_form
     def create(self):
         # create a new object
-        return 'dummy: object created'
+
+        # TODO: validate and sanitize submitted data throughly
+        dc_title = request.POST.getone('dc_title')
+        dc_description = request.POST.getone('dc_description')
+
+        thing = Thing(title=dc_title, description=dc_description)
+        Session.add(thing)
+        Session.commit()
+
+        redirect_to('show_thing', uuid=thing.uuid)
 
     def new(self):
         # show new object form

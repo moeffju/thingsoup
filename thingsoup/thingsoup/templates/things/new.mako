@@ -2,7 +2,7 @@
 
 <%def name="header()">add a thing to the soup</%def>
 
-${h.secure_form(url('save_page'))}
+${h.secure_form(url('create_thing'))}
     <fieldset>
 
         <legend>Thing details</legend>
@@ -12,14 +12,14 @@ ${h.secure_form(url('save_page'))}
                 <label for="dc_title">
                     Title
                 </label>
-                <input type="text" id="dc_title"/>
+                <input type="text" id="dc_title" name="dc_title"/>
             </li>
 
             <li>
                 <label for="dc_description">
                     Description
                 </label>
-                <textarea id="dc_description"/>
+                <textarea id="dc_description" name="dc_description"/>
             </li>
 
 <!--
