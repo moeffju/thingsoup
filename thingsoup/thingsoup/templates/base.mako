@@ -22,11 +22,9 @@
             </nav>
 
             <form>
-                <fieldset>
-                    <label for="query">Search</label>
-                    <input type="search" id="query"/>
-                    <input type="submit"/>
-                </fieldset>
+                <label for="query">Search</label>
+                <input type="search" id="query"/>
+                <input type="submit"/>
             </form>
         </header>
 
