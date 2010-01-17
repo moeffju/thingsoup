@@ -13,7 +13,7 @@
                         ${h.link_to('Home', url('home'))}
                     </li>
                     <li>
-                        ${h.link_to('Index', url('index'))}
+                        ${h.link_to('Index', url('index_things'))}
                     </li>
                     <li>
                         ${h.link_to('New Thing', url('form_new_thing'))}
