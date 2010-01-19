@@ -28,6 +28,13 @@
             </form>
         </header>
 
+        <% flashes = h.flash.pop_messages() %>
+        % if flashes:
+            % for flash in flashes:
+        <div class="message">${flash}</div>
+            % endfor
+        % endif
+
         <div class="main">
 
             <h1>${self.header()}</h1>

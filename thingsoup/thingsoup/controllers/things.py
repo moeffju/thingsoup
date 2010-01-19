@@ -5,6 +5,8 @@ from pylons.controllers.util import abort, redirect_to
 from pylons.decorators.secure import authenticate_form
 
 from thingsoup.lib.base import BaseController, render
+from thingsoup.lib.helpers import flash
+
 from thingsoup.model import Thing
 from thingsoup.model.meta import Session
 
@@ -34,6 +36,24 @@ class ThingsController(BaseController):
         Session.commit()
 
         redirect_to('show_thing', uuid=thing.uuid)
+
+    @authenticate_form
+    def delete(self):
+        # delete a thing
+
+        # TODO: authorization (who should be able to delete things ?)
+        # should things be deleted at all ?
+        uuids = request.POST.getall('uuid')
+        things = self.thing_q.filter(Thing.uuid.in_(uuids))
+
+        for thing in things:
+            Session.delete(thing)
+        Session.commit()
+
+        for uuid in uuids:
+            flash('Deleted %s.' % uuid)
+
+        redirect_to('index_things')
 
     def new(self):
         # show new object form
