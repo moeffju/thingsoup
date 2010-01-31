@@ -3,41 +3,48 @@
 <%def name="header()">${c.thing.dc_title}</%def>
 
 <dl>
-    <dt>
-        Title
+    <dt class="title">
+        <span>title</span>
     </dt>
-    <dd>
+    <dd class="title">
         ${c.thing.dc_title}
     </dd>
     
-    <dt>
-        Description
+    <dt class="description">
+        description
     </dt>
-    <dd>
+    <dd class="description">
         ${c.thing.dc_description}
     </dd>
 
-    <dt>
+    <dt class="type">
         Type
     </dt>
-    <dd>
+    <dd class="type">
         ${c.thing.dc_type}
     </dd>
 
-    <dt>
+    <dt class="uuid">
         UUID
     </dt>
-    <dd>
+    <dd class="uuid">
         <a href="${c.thing.urn()}">
             ${c.thing.uuid}
         </a>
     </dd>
+    
+    <dt class="qr">
+        QR
+    </dt>
+    
+    <dd class="qr">
+        <a href="${c.thing.qrcode(size=256)}" class="qr">
+        <img
+            src="${c.thing.qrcode(size=128)}"
+            alt="QRcode for ${c.thing.uuid}"
+            class="qrcode"
+        />
+        </a>
+    </dd>
 </dl>
 
-<a href="${c.thing.qrcode(size=256)}">
-    <img
-        src="${c.thing.qrcode(size=128)}"
-        alt="QRcode for ${c.thing.uuid}"
-        class="qrcode"
-    />
-</a>

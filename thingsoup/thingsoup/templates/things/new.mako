@@ -5,37 +5,48 @@
 ${h.secure_form(url('create_thing'))}
     <fieldset>
 
-        <legend>Thing details</legend>
+        <legend>thing details</legend>
 
-        <ol>
-            <li>
+        <dl>
+            <dt class="title">
+                <span>title</span>
+            </dt>
+            <dd class="title">
+                <input type="text" id="dc_title" name="dc_title" autofocus="autofocus"/>
                 <label for="dc_title">
-                    Title
+                    type a name for your thing
                 </label>
-                <input type="text" id="dc_title" name="dc_title"/>
-            </li>
+            </dd>
 
-            <li>
-                <label for="dc_description">
-                    Description
-                </label>
+            <dt class="description">
+                description
+            </dt>
+            <dd class="description">
                 <textarea id="dc_description" name="dc_description"/>
-            </li>
+                <label for="dc_description">
+                	describe in detail what your thing is like
+                </label>
+            </dd>
 
 <!--
-            <li>
+            <dt>
                 <label for="title">
                     Type:
                 </label>
+            </dt>
+            <dd>
                 <select id="dc_type">
                     <option value="PhysicalObject">Physical object</option>
                 </select>
-            </li>
+            </dd>
 -->
-        </ol>
+            <dt class="actions">
+                actions
+            </dt>
+            <dd class="actions">
+                <input type="submit" value="add the thing"/>
+            </dd>
 
-        <input type="reset"/>
-        <input type="submit"/>
-
+        </dl>
     </fieldset>
 ${h.end_form()}
