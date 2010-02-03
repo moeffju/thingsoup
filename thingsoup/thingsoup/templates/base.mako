@@ -9,16 +9,12 @@
 
     <body>
         <header>
-            ${h.link_to('Home', url('home'))}
-            
-            <form>
-                <label for="query">Search</label>
-                <input type="search" id="query"/>
-                <input type="submit" value="search"/>
-            </form>
-            
+
             <nav>
                 <ul>
+                    <li>
+                        ${h.link_to('Home', url('home'))}
+                    </li>
                     <li>
                         ${h.link_to('index', url('index_things'))}
                     </li>
@@ -27,6 +23,12 @@
                     </li>
                 </ul>
             </nav>
+
+            <form>
+                <label for="query">Search</label>
+                <input type="search" id="query"/>
+                <input type="submit" value="search"/>
+            </form>
 
         </header>
 

@@ -3,8 +3,7 @@
 <%def name="header()">search for things</%def>
 
     <div class="thing-main">
-    
-        <div class="thing-icon"></div>
+
         <div class="thing-edit">
         
             <div class="wide">

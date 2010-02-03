@@ -4,7 +4,7 @@
 
 <dl>
     <dt class="title">
-        <span>title</span>
+        title
     </dt>
     <dd class="title">
         ${c.thing.dc_title}
