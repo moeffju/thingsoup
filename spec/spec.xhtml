@@ -3,14 +3,8 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <title>Thingsoup API Specification</title>
-
-  <style type="text/css">
-body {
-    background-image:url("images/sidebar.png") !important;
-}
-  </style>
-  <link href="http://www.w3.org/StyleSheets/TR/W3C-ED.css" rel="stylesheet" type="text/css"/>
   <link href="style/headline-numbering.css" rel="stylesheet" type="text/css"/>
+  <link href="style/draft.css" rel="stylesheet" type="text/css"/>
  </head>
 
  <body>
@@ -99,8 +93,8 @@ body {
 
   <h2 id="scope">Scope</h2>
 
-  <p>
-   <em>This section is non-normative.</em>
+  <p class="note">
+   This section is non-normative.
   </p>
 
   <h2 id="security">Security and privacy
@@ -112,11 +106,251 @@ body {
 
   <h2 id="api_description">API Description</h2>
 
-   <h3 id="api_description_things">Thing</h3>
+   <h3 id="api_description_terminology">Terminology</h3>
 
-   <p>
-   A thing is defined by the 15 Dublin Core elements listed in RFC 5013. <a href="#ref-rfc5013">[RFC5013]</a>
-   </p>
+    <p>
+     This document uses the following terms:
+    </p>
+
+    <h4>Datetime</h4>
+
+     <p>
+      A <i>datetime string</i> is a valid <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string">global date and time string</a> according to HTML5 Subsection 2.4.5.5. <a href="#ref-html5">[HTML5]</a>
+     </p>
+
+    <h4>Location</h4>
+
+     <p>
+      A <i>location string</i> is a valid http://dublincore.org/documents/dcmi-point/ [DCMIPOINT]
+     </p>
+
+    <h4>Physical size</h4>
+
+    <p>
+     A <i>physical size string</i> consists of the following components in the given order:
+     <ol>
+      <li>One or more digits, representing length in meters, where length ≥ 0</li>
+      <li>A U+002E FULL STOP character (.)</li>
+      <li>two digits, representing length in centimeters, where 100 > length ≥ 0</li>
+      <li>A U+006D LATIN SMALL LETTER M character (m)</li>
+      <li>A U+00D7 MULTIPLICATION SIGN character (×)</li>
+      <li>One or more digits, representing width in meters, where width ≥ 0</li>
+      <li>A U+002E FULL STOP character (.)</li>
+      <li>two digits, representing width in centimeters, where 100 > width ≥ 0</li>
+      <li>A U+006D LATIN SMALL LETTER M character (m)</li>
+      <li>A U+00D7 MULTIPLICATION SIGN character (×)</li>
+      <li>One or more digits, representing height in meters, where height ≥ 0</li>
+      <li>A U+002E FULL STOP character (.)</li>
+      <li>two digits, representing height in centimeters, where 100 > height ≥ 0</li>
+      <li>A U+006D LATIN SMALL LETTER M character (m)</li>
+     </ol>
+    </p>
+
+    <p class="example">
+     1.02m×0.70m×0.28m
+    </p>
+
+    <dt>Text string</dt>
+    <dd></dd>
+
+    <dt>ID string</dt>
+    <dd></dd>
+
+   <h3 id="api_description_things">Thing interface</h3>
+
+    <p>
+     A thing is a logical object having several attributes containing technical and legal information associated with the described physical object. The information is acquired by creating a thing object, running an algorithm for gathering attribute-related data and populating the object attributes with appropriate data accordingly.
+    </p>
+
+    <p class="note">
+     It is outside of the scope of this specification to define an algorithm for gathering attribute data.
+    </p>
+
+    <h4 id="api_description_thing_attributes">Attributes</h4>
+
+     <h5 id="api_description_dc_terms">Dublin core attributes</h5>
+
+      <p>
+       Most metadata attributes are derived from a subset of the Dublin Core metadata terms <a href="#ref-dcterms">[DCTERMS]</a>. While Dublin Core suggests the use of <q>formal identification system[s]</q> and <q>controlled vocabular[ies]</q>, details are often left vague. For this purpose, the following table lists relations to 
+      </p>
+
+      <p class="note">
+       For information about the definition of a term, refer to the Dublin Core metadata terms <a href="#ref-dcterms">[DCTERMS]</a>.
+      </p>
+
+      <table id="api_description_dc_elements_table">
+       <thead>
+        <tr>
+         <th>term</th>
+         <th>format</th>
+         <th>mandatory</th>
+         <th>multiple</th>
+         <th>relation</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>identifier</td>
+         <td>UUID</td>
+         <td>yes</td>
+         <td>no</td>
+         <td>one to one</td>
+        </tr>
+        <tr>
+         <td>accessRights</td>
+         <td>???</td>
+         <td>no</td>
+         <td>yes</td>
+         <td>many to many</td>
+        </tr>
+        <tr>
+         <td>available</td>
+         <td>datetime</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>contributor</td>
+         <td>text</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>coverage</td>
+         <td>location</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>created</td>
+         <td>datetime</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>creator</td>
+         <td>text</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>dateSubmitted</td>
+         <td>datetime</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>description</td>
+         <td>text</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>extent</td>
+         <td>size</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>format</td>
+         <td>string "physicalObject"</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>hasPart</td>
+         <td>UUID</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>hasVersion</td>
+         <td>UUID</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>isPartof</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>isRequiredBy</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>isVersionOf</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>language</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>license</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+   
+       </tbody>
+      </table>
+
+     <h5>Thingsoup attributes</h5>
 
   <h2 id="usecases">Use-Cases and Requirements</h2>
 
@@ -171,6 +405,19 @@ body {
   <h2 class="no-num" id="references">References</h2>
 
   <dl>
+   <dt>
+    <a id="ref-dctype">[DCTYPE]</a>
+   </dt>
+   <dd>
+    <cite><a href="http://dublincore.org/documents/dcmi-type-vocabulary/">DCMI Type Vocabulary</a></cite>.
+   </dd>
+
+   <dt>
+    <a id="ref-html5">[HTML5]</a>
+   </dt>
+   <dd>
+    <cite><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/">HTML5 (including next generation additions still in development)</a></cite>, Ian Hickson. Web Hypertext Application Technology Working Group, February 2010.
+   </dd>
 
    <dt>
     <a id="ref-rfc2119">[RFC2119]</a>
@@ -180,13 +427,11 @@ body {
    </dd>
 
    <dt>
-    <a id="ref-rfc5013">[RFC5013]</a>
+    <a id="ref-dcterms">[DCTERMS]</a>
    </dt>
    <dd>
-    <cite><a href="http://www.ietf.org/rfc/rfc5013.txt">The Dublin Core Metadata Element Set</a></cite>, John A. Kunze
-, Thomas Baker. Internet Engineering Task Force, August 2007.
+    <cite><a href="http://dublincore.org/documents/dcmi-terms/">The Dublin Core Metadata Element Set</a></cite>, Dublin Core Metadata Initiative, January 2008.
    </dd>
-
   </dl>
 
 </body> 

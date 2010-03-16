@@ -25,7 +25,7 @@ a:active { color: #C00; background: transparent }
 
 a:link img, a:visited img { border-style: none } /* no border on img links */
 
-table { width: 50%;}
+table { width: 60%;}
 table tr:nth-child(even) { background: #d3d7cf; }
 table tr:nth-child(odd) { background: #eeeeec; }
 
@@ -41,8 +41,13 @@ h6 { font: italic 100% sans-serif, display: inline-block; }
 
 .hide { display: none }
 
-.note { color: #4e9a06; margin-left: 2em; }
-.note:before { content: "Note: "; font-width: bold;}
+.example, .note { margin-left: 2em; }
+
+.example { color: #555753; }
+.example:before { content: "Example: "; font-weight: bold;}
+
+.note { color: #4e9a06; }
+.note:before { content: "Note: "; font-weight: bold;}
 
 div.head { margin-bottom: 1em }
 div.head h1 { margin-top: 2em; clear: both }
