@@ -2,7 +2,7 @@
 
 <%def name="header()">all things</%def>
 
-${h.form(url('delete_thing'))}
+${h.secure_form(url('delete_thing'))}
 
     <ul class="things">
         % for i, thing in enumerate(c.things):
