@@ -23,7 +23,7 @@ class ThingsController(BaseController):
         c.things = self.thing_q.all()
         return render('/things/index.mako')
 
-    @authenticate_form
+    # TODO: CSRF protection
     def create(self):
         # create a new object
 
@@ -37,7 +37,7 @@ class ThingsController(BaseController):
 
         redirect_to('show_thing', uuid=thing.uuid)
 
-    @authenticate_form
+    # TODO: CSRF protection
     def delete(self):
         # delete a thing
 

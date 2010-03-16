@@ -2,7 +2,7 @@
 
 <%def name="header()">add a thing to the soup</%def>
 
-${h.secure_form(url('create_thing'))}
+${h.form(url('create_thing'))}
     <fieldset>
 
         <legend>thing details</legend>
