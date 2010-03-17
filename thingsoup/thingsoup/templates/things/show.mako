@@ -28,23 +28,7 @@
         UUID
     </dt>
     <dd class="uuid">
-        <a href="${c.thing.urn()}">
-            ${c.thing.uuid}
-        </a>
-    </dd>
-    
-    <dt class="qr">
-        QR
-    </dt>
-    
-    <dd class="qr">
-        <a href="${c.thing.qrcode(size=256)}" class="qr">
-        <img
-            src="${c.thing.qrcode(size=128)}"
-            alt="QRcode for ${c.thing.uuid}"
-            class="qrcode"
-        />
-        </a>
+        ${c.thing.uuid}
     </dd>
 </dl>
 
