@@ -7,7 +7,7 @@ from pylons.decorators.secure import authenticate_form
 from thingsoup.lib.base import BaseController, render
 from thingsoup.lib.helpers import flash
 
-from thingsoup.model import Thing
+from thingsoup.model.thing import Thing
 from thingsoup.model.meta import Session
 
 log = logging.getLogger(__name__)
