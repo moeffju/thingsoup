@@ -3,27 +3,20 @@
 
 body {
     min-width: 800px;
-
     padding: 2em;
-
     line-height: 1.5;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 12px;
-    
     background-color: white;
 }
 
 h1 {
     float: left;
     clear: both;
-    
     display: block;
-    
     border-top: 0.1em solid black;
     width: 100%;
-    
     padding-top: 0.25em;
-    
     font-size: 2em;
     font-weight: bold;
     
@@ -45,21 +38,16 @@ a {
 
 header {
     line-height: 4em;
-    
     float: left;
     clear: both;
-    
     width: 100%;
 }
 
 header a {
     background-image: url("../img/thingsoup-logo-small.png");
-    
     width: 118px;
     height: 34px;
-    
     float: left;
-    
     margin-right: 32px;
     
 }
@@ -106,13 +94,10 @@ legend {
 dl {
     float: left;
     clear: both;
-    
     padding-top: 0.5em;
     padding-left: 1em;
     padding-bottom: 10em;
-    
     width: 75%;
-    
     margin-left: 93px;
     margin-top: 30px;
 }
@@ -180,16 +165,10 @@ ul.things li {
 
 ul.things li img {
     float: left;
-    
     padding: 1em 2em;
-    
     margin-bottom: 4em;
     margin-right: 1em;
-    
     background-color: #eee;
-}
-
-ul.things li a {
 }
 
 ul.things li p {
@@ -211,6 +190,5 @@ ul.things .uuid {
 .main form #delete {
     float: right;
     clear: both;
-    
     margin-top: 100px;
 }
