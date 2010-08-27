@@ -2,6 +2,10 @@ import logging
 
 from pylons import request, response, session, tmpl_context as c
 from pylons.controllers.util import abort, redirect_to
+<<<<<<< HEAD
+
+from thingsoup.lib.base import BaseController, render
+=======
 from pylons.decorators.secure import authenticate_form
 
 from thingsoup.lib.base import BaseController, render
@@ -9,11 +13,31 @@ from thingsoup.lib.helpers import flash
 
 from thingsoup.model.thing import Thing
 from thingsoup.model.meta import Session
+>>>>>>> 320a557897451e8ca8a308e8fdbb8e5f78b7efd6
 
 log = logging.getLogger(__name__)
 
 class ThingsController(BaseController):
 
+<<<<<<< HEAD
+    def index(self):
+        # Return a rendered template
+        #return render('/things.mako')
+        # or, return a response
+        return 'Goodbye, cruel world.'
+
+    def create(self):
+        # create a new object
+        return 'dummy: object created'
+
+    def new(self):
+        # show new object form
+        return 'dummy: new object form'
+
+    def show(self):
+        # show an object
+        return 'dummy: details about object'
+=======
     def __before__(self):
         self.thing_q = Session.query(Thing)
 
@@ -69,3 +93,4 @@ class ThingsController(BaseController):
         else:
             abort(404)
 
+>>>>>>> 320a557897451e8ca8a308e8fdbb8e5f78b7efd6

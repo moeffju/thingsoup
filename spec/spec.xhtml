@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Thingsoup API Specification</title>
+  <link href="style/headline-numbering.css" rel="stylesheet" type="text/css"/>
+  <link href="style/draft.css" rel="stylesheet" type="text/css"/>
+ </head>
+
+ <body>
+  <div class="head">
+
+   <!-- put banner here -->
+
+   <h1 id="title_heading">Thingsoup API Specification</h1>
+   <h2 class="no-num no-toc" id="draft_date">Brainstorming (<i>present day, present time</i>)</h2>
+
+   <dl>
+    <dt>Editor:</dt>
+    <dd>Nils Dagsson Moskopp (<i>erlehmann</i>)</dd>
+   </dl>
+
+  <p class="copyright"/>
+
+   <hr/>
+  </div>
+
+  <h2 class="no-num no-toc" id="abstract">Abstract</h2>
+
+  <p>
+   This specification defines an API that provides access to metainformation information associated with physical objects.
+  </p>
+
+  <h2 class="no-num no-toc" id="status">Status of This Document</h2>
+
+  <p>
+   This document was published by [[bla blupp]].
+   If you wish to make comments regarding this document, please send
+   them to <a href="http://groups.google.com/group/thingsoup-core/">thingsoup-core</a>.
+  </p> 
+
+  <p>
+   All feedback is welcome.
+  </p>
+
+  <!--
+  <h2 class="no-num no-toc" id="contents">Table of Contents</h2>
+  -->
+
+  <ul/>
+
+  <h2 id="conformance">Conformance requirements</h2>
+
+  <p>
+   All diagrams, examples, and notes in this specification are
+   non-normative, as are all sections explicitly marked non-normative.
+   Everything else in this specification is normative.
+  </p>
+
+  <p>
+   The key words "MUST", "MUST NOT", "REQUIRED", <!--"SHALL", "SHALL
+   NOT",-->
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in the
+   normative parts of this document are to be interpreted as described in
+   RFC2119. For readability, these words do not appear in all uppercase
+   letters in this specification. <a href="#ref-rfc2119">[RFC2119]</a>
+   <!-- XXX but they should be
+   marked up -->
+  </p>
+
+  <p>
+   Requirements phrased in the imperative as part of algorithms (such as
+   "strip any leading space characters" or "return false and abort these
+   steps") are to be interpreted with the meaning of the key word ("must",
+   "should", "may", etc) used in introducing the algorithm.
+  </p>
+
+  <p>
+   Conformance requirements phrased as algorithms or specific steps may be
+   implemented in any manner, so long as the end result is equivalent. (In
+   particular, the algorithms defined in this specification are intended to
+   be easy to follow, and not intended to be performant.)
+  </p>
+
+  <p id="hardwareLimitations">
+   Implementors may impose implementation-specific
+   limits on otherwise unconstrained inputs, e.g. to prevent denial of
+   service attacks, to guard against running out of memory, or to work around
+   platform-specific limitations.
+  </p>
+
+  <h2 id="introduction">Introduction</h2>
+
+  <h2 id="scope">Scope</h2>
+
+  <p class="note">
+   This section is non-normative.
+  </p>
+
+  <h2 id="security">Security and privacy
+   considerations</h2>
+
+   <p>
+   The API defined in this specification can be used to retrieve the geographic location of a physical object. In many cases, this information also discloses the location of the current user of the object, thereby potentially compromising the user's privacy. A conforming implementation of this specification must provide a mechanism that protects the user's privacy and this mechanism should ensure that no location information is made available without the user's express permission.
+   </p>
+
+  <h2 id="api_description">API Description</h2>
+
+   <h3 id="api_description_terminology">Terminology</h3>
+
+    <p>
+     This document uses the following terms:
+    </p>
+
+    <h4>Datetime</h4>
+
+     <p>
+      A <i>datetime string</i> is a valid <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#valid-global-date-and-time-string">global date and time string</a> according to HTML5 Subsection 2.4.5.5. <a href="#ref-html5">[HTML5]</a>
+     </p>
+
+    <h4>Location</h4>
+
+     <p>
+      A <i>location string</i> is a valid http://dublincore.org/documents/dcmi-point/ [DCMIPOINT]
+     </p>
+
+    <h4>Physical size</h4>
+
+    <p>
+     A <i>physical size string</i> consists of the following components in the given order:
+     <ol>
+      <li>One or more digits, representing length in meters, where length ≥ 0</li>
+      <li>A U+002E FULL STOP character (.)</li>
+      <li>two digits, representing length in centimeters, where 100 > length ≥ 0</li>
+      <li>A U+006D LATIN SMALL LETTER M character (m)</li>
+      <li>A U+00D7 MULTIPLICATION SIGN character (×)</li>
+      <li>One or more digits, representing width in meters, where width ≥ 0</li>
+      <li>A U+002E FULL STOP character (.)</li>
+      <li>two digits, representing width in centimeters, where 100 > width ≥ 0</li>
+      <li>A U+006D LATIN SMALL LETTER M character (m)</li>
+      <li>A U+00D7 MULTIPLICATION SIGN character (×)</li>
+      <li>One or more digits, representing height in meters, where height ≥ 0</li>
+      <li>A U+002E FULL STOP character (.)</li>
+      <li>two digits, representing height in centimeters, where 100 > height ≥ 0</li>
+      <li>A U+006D LATIN SMALL LETTER M character (m)</li>
+     </ol>
+    </p>
+
+    <p class="example">
+     1.02m×0.70m×0.28m
+    </p>
+
+    <dt>Text string</dt>
+    <dd></dd>
+
+    <dt>ID string</dt>
+    <dd></dd>
+
+   <h3 id="api_description_things">Thing interface</h3>
+
+    <p>
+     A thing is a logical object having several attributes containing technical and legal information associated with the described physical object. The information is acquired by creating a thing object, running an algorithm for gathering attribute-related data and populating the object attributes with appropriate data accordingly.
+    </p>
+
+    <p class="note">
+     It is outside of the scope of this specification to define an algorithm for gathering attribute data.
+    </p>
+
+    <h4 id="api_description_thing_attributes">Attributes</h4>
+
+     <h5 id="api_description_dc_terms">Dublin core attributes</h5>
+
+      <p>
+       Most metadata attributes are derived from a subset of the Dublin Core metadata terms <a href="#ref-dcterms">[DCTERMS]</a>. While Dublin Core suggests the use of <q>formal identification system[s]</q> and <q>controlled vocabular[ies]</q>, details are often left vague. For this purpose, the following table lists relations to 
+      </p>
+
+      <p class="note">
+       For information about the definition of a term, refer to the Dublin Core metadata terms <a href="#ref-dcterms">[DCTERMS]</a>.
+      </p>
+
+      <table id="api_description_dc_elements_table">
+       <thead>
+        <tr>
+         <th>term</th>
+         <th>format</th>
+         <th>mandatory</th>
+         <th>multiple</th>
+         <th>relation</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>identifier</td>
+         <td>UUID</td>
+         <td>yes</td>
+         <td>no</td>
+         <td>one to one</td>
+        </tr>
+        <tr>
+         <td>accessRights</td>
+         <td>???</td>
+         <td>no</td>
+         <td>yes</td>
+         <td>many to many</td>
+        </tr>
+        <tr>
+         <td>available</td>
+         <td>datetime</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>contributor</td>
+         <td>text</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>coverage</td>
+         <td>location</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>created</td>
+         <td>datetime</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>creator</td>
+         <td>text</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>dateSubmitted</td>
+         <td>datetime</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>description</td>
+         <td>text</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>extent</td>
+         <td>size</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>format</td>
+         <td>string "physicalObject"</td>
+         <td>no</td>
+         <td>no</td>
+        </tr>
+        <tr>
+         <td>hasPart</td>
+         <td>UUID</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>hasVersion</td>
+         <td>UUID</td>
+         <td>no</td>
+         <td>yes</td>
+        </tr>
+        <tr>
+         <td>isPartof</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>isRequiredBy</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>isVersionOf</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>language</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td>license</td>
+         <td></td>
+         <td>no</td>
+         <td>yes</td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+        <tr>
+         <td></td>
+         <td></td>
+         <td>no</td>
+         <td></td>
+         <td></td>
+        </tr>
+   
+       </tbody>
+      </table>
+
+     <h5>Thingsoup attributes</h5>
+
+  <h2 id="usecases">Use-Cases and Requirements</h2>
+
+   <h3 id="usecases_section">Use-Cases</h3>
+
+    <h4 id="usecase_borrowing">Borrowing things</h4>
+
+    <p>
+     <i>mntmn</i> sees a book at a friend's place.
+     He wants to know the conditions under which he could take it home.
+     (<a href="images/thingsoup-use-case-buch-praesentation.jpg">Illustration</a>).
+    </p>
+
+    <h4 id="usecase_limited_commons">Limited Commons</h4>
+
+    <p>
+     <i>moeffju</i> has a car. He wants to allow some of his friends to change its location.
+    </p>
+
+    <h4 id="usecase_depletable_commons">Depletable Commons</h4>
+
+    <p>
+     <i>plomlompom</i> has 500g cacoa powder stored in his cupboard at home. He wants to allow visitors to use this resource to make hot chocolate.
+    </p>
+
+   <h3 id="requirements_section">Requirements</h3>
+
+    <h4>Associating physical objects with datasets</h4>
+
+     <p>
+      It is recommended that objects be associated with their respective datasets through use of their <abbr>UUID</abbr>. Implementors should not use other means of identification, to prevent difficulties resulting from differing proprietary means of identification. If they chose to do so regardless, the <abbr>UUID</abbr> must also be available in a machine-readable way.
+     </p>
+     <p>
+      Making the <abbr>UUID</abbr> available can be accomplished in a matter of ways, a non-exhaustive list of which is noted here:
+     </p>
+
+     <ul>
+      <li>Writing / printing the UUID of an object on the object itself or on a label near the object. It is recommended to use an <abbr title="Optical Character Recognition">OCR</abbr>-safe font for this.</li>
+      <li><abbr title="two-dimensional">2D</abbr>-Barcodes, such as QR-Code or Data Matrix / Semacode [ISO/IEC 16002]</li>
+      <li>Using radio tags, e.g. <abbr>RFID</abbr>.</li>
+     </ul>
+
+  <h2 class="no-num" id="acknowledgments">Acknowledgments</h2>
+
+  <ul>
+   <li>Kathrin Passig (<i>bilch</i>)</li>
+   <li>Matthias Bauer (<i>moeffju</i>)</li>
+   <li>Lukas Hartmann (<i>mntmn</i>)</li>
+   <li>Christian Heller (<i>plomlompom</i>)</li>
+  </ul>
+
+  <h2 class="no-num" id="references">References</h2>
+
+  <dl>
+   <dt>
+    <a id="ref-dctype">[DCTYPE]</a>
+   </dt>
+   <dd>
+    <cite><a href="http://dublincore.org/documents/dcmi-type-vocabulary/">DCMI Type Vocabulary</a></cite>.
+   </dd>
+
+   <dt>
+    <a id="ref-html5">[HTML5]</a>
+   </dt>
+   <dd>
+    <cite><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/">HTML5 (including next generation additions still in development)</a></cite>, Ian Hickson. Web Hypertext Application Technology Working Group, February 2010.
+   </dd>
+
+   <dt>
+    <a id="ref-rfc2119">[RFC2119]</a>
+   </dt>
+   <dd>
+    <cite><a href="http://www.ietf.org/rfc/rfc2119.txt">Key words for use in RFCs to Indicate Requirement Levels</a></cite>, Scott Bradner. Internet Engineering Task Force, March 1997.
+   </dd>
+
+   <dt>
+    <a id="ref-dcterms">[DCTERMS]</a>
+   </dt>
+   <dd>
+    <cite><a href="http://dublincore.org/documents/dcmi-terms/">The Dublin Core Metadata Element Set</a></cite>, Dublin Core Metadata Initiative, January 2008.
+   </dd>
+  </dl>
+
+</body> 
+</html> 

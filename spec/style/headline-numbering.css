@@ -1,0 +1,31 @@
+.no-num:before {
+    content: none !important;
+    counter-increment: none !important;
+}
+
+body {
+    counter-reset: section;
+}
+
+h2:before {
+    content: counter(section) " ";
+    counter-increment: section;
+}
+
+h2 {
+    counter-reset: sub-section;
+}
+
+h3:before {
+    content: counter(section) "." counter(sub-section) " ";
+    counter-increment: sub-section;
+}
+
+h3 {
+    counter-reset: paragraph;
+}
+
+h4:before {
+    content: counter(section) "." counter(sub-section) "." counter(paragraph) " ";
+    counter-increment: paragraph;
+}

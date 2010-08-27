@@ -1,0 +1,194 @@
+
+/* ------------------------------- type */
+
+body {
+    min-width: 800px;
+    padding: 2em;
+    line-height: 1.5;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    background-color: white;
+}
+
+h1 {
+    float: left;
+    clear: both;
+    display: block;
+    border-top: 0.1em solid black;
+    width: 100%;
+    padding-top: 0.25em;
+    font-size: 2em;
+    font-weight: bold;
+    
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-top: 0.5em;
+}
+
+a {
+    font-weight: bold;
+}
+
+/* ------------------------------- header */
+
+header {
+    line-height: 4em;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+
+header a {
+    background-image: url("../img/thingsoup-logo-small.png");
+    width: 118px;
+    height: 34px;
+    float: left;
+    margin-right: 32px;
+    
+}
+
+header nav a {
+    background-image: none;
+    width: auto;
+    height: auto;
+    margin-right: 8px;
+    
+}
+
+header form label {
+    display: none;
+}
+
+header form {
+    float: left;
+}
+
+header {
+    height: 50px;
+}
+
+header nav {
+    float: right;
+}
+
+header nav li {
+    float: left;
+}
+
+/* ------------------------------- thing:show / thing:new / thing:edit */
+
+fieldset {
+    float: left;
+    clear: both;
+}
+
+legend {
+    display: none;
+}
+
+dl {
+    float: left;
+    clear: both;
+    padding-top: 0.5em;
+    padding-left: 1em;
+    padding-bottom: 10em;
+    width: 75%;
+    margin-left: 93px;
+    margin-top: 30px;
+}
+
+dd, dt {
+    margin-top: 1em;
+    float: left;
+    padding: 0;
+}
+
+dt {
+    font-weight: bold;
+    text-align: right;
+    clear: both;
+    width: 150px;
+}
+
+dd {
+    text-align: left;
+    width: 385px;
+    margin-left: 15px;
+}
+
+dd input, dd textarea, dd select {
+    float: left;
+    width: 100%;
+}
+
+dd textarea {
+    height: 100px;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+dt.title {
+    background-image: url("../img/box-big.png");
+    background-repeat: no-repeat;
+    background-position: 100px 0;
+    height: 4em;
+}
+
+dt.title + dd {
+    height: 4em;
+    margin-top: 2em;
+}
+
+dt.title span, dt.description, dt.qr {
+    visibility: hidden;
+}
+
+/* ------------------------------- thing:list */
+
+ul.things {
+    margin-top: 1em;
+    float: left;
+    clear: both;
+}
+
+ul.things li {
+    float: left;
+    clear: both;
+    
+    min-width: 400px;
+}
+
+ul.things li img {
+    float: left;
+    padding: 1em 2em;
+    margin-bottom: 4em;
+    margin-right: 1em;
+    background-color: #eee;
+}
+
+ul.things li p {
+    margin-top: 0 !important;
+}
+
+ul.things li input {
+    float: left;
+    margin-left: -2px;
+    margin-top: 1em;
+}
+
+ul.things .uuid {
+    color: #aaa;
+    white-space: nowrap;
+    padding-top: 1em;
+}
+
+.main form #delete {
+    float: right;
+    clear: both;
+    margin-top: 100px;
+}

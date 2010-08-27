@@ -1,0 +1,3 @@
+include thingsoup/config/deployment.ini_tmpl
+recursive-include thingsoup/public *
+recursive-include thingsoup/templates *
